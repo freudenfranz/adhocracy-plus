@@ -10,24 +10,26 @@
 
 ### Installation
 
+### Option 1: Local Installation
+
     git clone https://github.com/liqd/adhocracy-plus.git
     cd adhocracy-plus
     make install
     make fixtures
 
-### Start virtual environment
+#### Start virtual environment
 
     source venv/bin/activate
 
-### Check if tests work
+#### Check if tests work
 
     make test
 
-### Start a local server
+#### Start a local server
 
     make watch
 
-### Use postgresql database for testing
+#### Use postgresql database for testing
 
 run the following command once:
 ```
@@ -42,7 +44,7 @@ make watch
 
 Go to http://localhost:8004/ and login with admin@liqd.net | password
 
-### Use Celery for task queues
+#### Use Celery for task queues
 
 For a celery worker to pick up tasks you need to make sure that:
 - the redis server is running
@@ -62,6 +64,17 @@ To send a dummy task to the queue and report the result, call:
 ```
 make celery-worker-dummy-task
 ```
+
+### Option 2: Docker Installation
+
+You can also use Docker to set up your development environment:
+
+    git clone https://github.com/liqd/adhocracy-plus.git
+    cd adhocracy-plus
+    docker build -t adhocracy-plus .
+    docker run -p 8004:8004 adhocracy-plus
+
+The application will be available at http://localhost:8004/. You can login with admin@liqd.net | password
 
 ## Installation on a production system
 
